@@ -6,7 +6,7 @@ Which keywords are the most common?
 Which movie had the most keywords?
 Which genre has the most movies? 
 what character names are most common? 
-which movies have the largest cast? 
+which movies have the most characters?
 which actors appear in the most movies? 
 which series have the most seasons? 
 which actors played the most characters? 
