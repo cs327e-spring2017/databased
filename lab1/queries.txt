@@ -1,0 +1,6 @@
+How many of each gender of actor are there?
+What is most common first name of actors?
+Which year had the most movies?
+Which movie title is used the most?
+Which keywords are the most common?
+Which movie had the most keywords?
