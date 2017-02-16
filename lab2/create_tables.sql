@@ -22,47 +22,47 @@ create table Actor(
 
 create table Genre(
 	genre_id integer primary key,
-	genre varchar(50));
+	genre varchar(50) not null);
 
 create table Keyword(
 	keyword_id integer primary key,
-	keyword varchar(50));
+	keyword varchar(50)not null);
 
 create table Actor_Aka_Names(
 	aka_id integer primary key,
-	actor_id integer references Actor(actor_id),
+	actor_id integer not null references Actor(actor_id),
 	aka_name varchar(1000));
 
 create table Series(
 	series_id integer primary key,
-	movie_id integer references Movie(movie_id),
+	movie_id integer not null references Movie(movie_id),
 	series_name varchar(1000),
 	season integer, 
 	number integer);
 
 create table Aka_Movie(
 	aka_title_id integer primary key,
-	movie_id integer references Movie(movie_id),
+	movie_id integer not null references Movie(movie_id),
 	aka_movie_name varchar(1000),
 	location varchar(50),
 	year integer);
 
 create table Casts(
 	character_id integer primary key,
-	movie_id integer references Movie(movie_id),
+	movie_id integer not null references Movie(movie_id),
 	series_id integer references Series(series_id),
-	actor_id integer references Actor(actor_id),
-	character varchar(1000),
+	actor_id integer not null references Actor(actor_id),
+	character varchar(9000),
 	billing_position integer);
 	
 create table Movie_Keyword(
 	movie_keyword_id integer primary key,
-	movie_id integer references Movie(movie_id),
-	keyword_id integer references Keyword(keyword_id),
+	movie_id integer not null references Movie(movie_id),
+	keyword_id integer not null references Keyword(keyword_id),
 	series_id integer references Series(series_id));
 
 create table Genre_Movie(
 	movie_genre_id integer primary key,
-	movie_id integer references Movie(movie_id),
-	genre_id integer references Genre(genre_id),
+	movie_id integer not null references Movie(movie_id),
+	genre_id integer not null references Genre(genre_id),
 	series_id integer references Series(series_id));
