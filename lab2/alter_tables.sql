@@ -24,5 +24,5 @@ alter table actor drop number;
 alter table aka_movie drop location;
 alter table casts drop billing_position;
 
-/*change type 
-alter table actor alter gender type char(1); */
+/*change type */
+alter table actor alter gender type char(1); 
