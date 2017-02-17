@@ -17,7 +17,7 @@ create table Actor(
 	first_name varchar(150),
 	last_name varchar(150),
 	m_name varchar(150),
-	gender bool,
+	gender integer,
 	number integer);
 
 create table Genre(
