@@ -10,19 +10,20 @@ inner join actor_aka_names
 on actor.actor_id=actor_aka_names.actor_id
 where actor.first_name = 'James';
 
-select * from genre;
+select * from genre
+order by genre;
 
-select movie.title, genre.genre
+select genre.genre, count(movie.title)
 from movie
 inner join genre_movie
 on movie.movie_id=genre_movie.movie_id
 inner join genre
 on genre_movie.genre_id=genre.genre_id
-where genre.genre='War';
+group by genre.genre
+having count(movie.title) > 2500;
 
 select count(*) from actor
-group by gender
-having gender = 'M';
+where gender = 'M';
 
 select count(genre) from genre;
 
@@ -34,3 +35,21 @@ right outer join aka_movie
 on movie.movie_id=aka_movie.movie_id
 where movie.year > 2014;
 
+select keyword.keyword, count(movie.title)
+from movie
+inner join movie_keyword
+on movie.movie_id=movie_keyword.movie_id
+inner join keyword
+on movie_keyword.keyword_id=keyword.keyword_id
+group by keyword.keyword
+having count(movie.title) > 1000
+order by count(movie.title);
+
+select aka_movie.aka_movie_name
+from aka_movie
+where year >2016
+order by year;
+
+select movie.title
+from movie
+where movie.title='Interstellar';

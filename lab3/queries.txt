@@ -1,0 +1,12 @@
+Queries:
+
+1: See which actor's whos first name is James.
+2: See all genres available, ordered alphabetically.
+3: See which genres have more than 2500 movies in them.
+4: See all actors who are male.
+5: See how many genres there are.
+6: See the latest year a movie was made in.
+7: See AKA titles of movies made in 2014 or later.
+8: See which keywords have more than 1000 movies, in ascending order.
+9: see movies and their AKA titles made in 2016  or later, ordered by year.
+10: See if there is a movie called 'Interstellar'.
