@@ -1,7 +1,7 @@
 import sys
 from queries import *
 
-COMMAND_COUNT = 5
+COMMAND_COUNT = 12
 running = True
 
 cursor = connect()
@@ -10,12 +10,19 @@ if cursor is None:
 	sys.exit()
 
 while running:
-	print("\n==============IMDB COMMAND MENU===============")
-	print("| 1. GET NUMBER OF ROW IN ACTORS             |")
-	print("| 2. GET NUMBER OF MOVIES IN A CERTAIN YEAR  |")
-	print("| 3. GET CAST INFORMATION OF A MOVIE         |")
-	print("| 4. EXIT                                    |")
-	print("==============================================\n")
+	print("\n==============IMDB COMMAND MENU==============================================")
+	print("| 1: See which actor's whos first name is James.                              |")
+	print("| 2: See all genres available, ordered alphabetically.                        |")
+	print("| 3: See which genres have more than 2500 movies in them.                     |")
+	print("| 4: See all actors who are male.                                             |")
+	print("| 5: See how many genres there are.                                           |")
+	print("| 6: See the latest year a movie was made in.                                 |")
+	print("| 7: See AKA titles of movies made in 2014 or later.                          |")
+	print("| 8: See which keywords have more than 1000 movies, in ascending order.       |")
+	print("| 9: see movies and their AKA titles made in 2016  or later, ordered by year. |")
+	print("| 10: See if there is a movie called 'Interstellar'.                          |")
+	print("| 11. EXIT                                                                    |")
+	print("===============================================================================\n")
 	choice = input("Select a Option: ")
 
 	try:
@@ -27,11 +34,25 @@ while running:
 		continue
 	
 	if choice == 1:
-		exmaple_one(cursor)
+		query_one(cursor)
 	elif choice == 2:
-		exmaple_two(cursor)
+		query_two(cursor)
 	elif choice == 3:
-		exmaple_three(cursor)
+		query_three(cursor)
 	elif choice == 4:
+		query_four(cursor)
+	elif choice == 5:
+		query_five(cursor)
+	elif choice == 6:
+		query_six(cursor)
+	elif choice == 7:
+		query_seven(cursor)
+	elif choice == 8:
+		query_eight(cursor)
+	elif choice == 9:
+		query_nine(cursor)
+	elif choice == 10:
+		query_ten(cursor)
+	elif choice == 11:
 		print('Exiting Command Menu...')
 		running = False
