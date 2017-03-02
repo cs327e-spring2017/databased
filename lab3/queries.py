@@ -60,7 +60,9 @@ def exmaple_three(cursor):
         print('No movie correspondes to the title: ' + title)
 
 def query_one():
-    pass
+    query = "select actor.first_name,actor.last_name, actor_aka_names.aka_name from actor inner join actor_aka_names on actor.actor_id=actor_aka_names.actor_id where actor.first_name = 'James';"
+    result = run_query(query, cursor)
+    print_table(result)
 
 def query_two():
     pass

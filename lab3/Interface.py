@@ -20,7 +20,7 @@ while running:
 	print("| 7. See AKA titles of movies made in 2014 or later.                          |")
 	print("| 8. See which keywords have more than 1000 movies, in ascending order.       |")
 	print("| 9. see movies and their AKA titles made in 2016  or later, ordered by year. |")
-        print("| 10.See if there is a movie called 'Interstellar'.                           |")
+	print("| 10.See if there is a movie called 'Interstellar'.                           |")
 	print("| 11. EXIT                                    |                               |")
 	print("==============================================\n")
 	choice = input("Select a Option: ")
@@ -39,13 +39,13 @@ while running:
 		query_two(cursor)
 	elif choice == 3:
 		query_three(cursor)
-        elif choice == 4:
+	elif choice == 4:
 		query_four(cursor)
 	elif choice == 5:
 		query_five(cursor)
 	elif choice == 6:
 		query_six(cursor)
-        elif choice == 7:
+	elif choice == 7:
 		query_seven(cursor)
 	elif choice == 8:
 		query_eight(cursor)
