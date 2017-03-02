@@ -14,8 +14,8 @@ create table Movie(
 
 create table Actor(
 	actor_id integer primary key,
-	first_name varchar(150),
 	last_name varchar(150),
+	first_name varchar(150),
 	m_name varchar(150),
 	gender integer,
 	number integer);
