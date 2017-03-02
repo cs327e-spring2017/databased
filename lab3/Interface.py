@@ -34,25 +34,25 @@ while running:
 		continue
 	
 	if choice == 1:
-		exmaple_one(cursor)
+		query_one(cursor)
 	elif choice == 2:
-		exmaple_two(cursor)
+		query_two(cursor)
 	elif choice == 3:
-		exmaple_three(cursor)
+		query_three(cursor)
         elif choice == 4:
-		exmaple_four(cursor)
+		query_four(cursor)
 	elif choice == 5:
-		exmaple_five(cursor)
+		query_five(cursor)
 	elif choice == 6:
-		exmaple_six(cursor)
+		query_six(cursor)
         elif choice == 7:
-		exmaple_seven(cursor)
+		query_seven(cursor)
 	elif choice == 8:
-		exmaple_eight(cursor)
+		query_eight(cursor)
 	elif choice == 9:
-		exmaple_nine(cursor)
+		query_nine(cursor)
 	elif choice == 10:
-		exmaple_ten(cursor)
+		query_ten(cursor)
               
 	elif choice == 11:
 		print('Exiting Command Menu...')
