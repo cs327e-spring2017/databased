@@ -10,8 +10,7 @@ inner join actor_aka_names
 on actor.actor_id=actor_aka_names.actor_id
 where actor.first_name = 'James';
 
-select * from genre
-order by genre;
+select * from genre order by genre;
 
 select genre.genre, count(movie.title)
 from movie

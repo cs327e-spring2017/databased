@@ -59,34 +59,52 @@ def exmaple_three(cursor):
     else:
         print('No movie correspondes to the title: ' + title)
 
-def query_one():
+def query_one(cursor):
     query = "select actor.first_name,actor.last_name, actor_aka_names.aka_name from actor inner join actor_aka_names on actor.actor_id=actor_aka_names.actor_id where actor.first_name = 'James';"
     result = run_query(query, cursor)
     print_table(result)
 
-def query_two():
-    pass
+def query_two(cursor):
+    query = "select * from genre order by genre;"
+    result = run_query(query, cursor)
+    print_table(result)
 
-def query_three():
-    pass
+def query_three(cursor):
+    query = "select genre.genre, count(movie.title) from movie inner join genre_movie on movie.movie_id=genre_movie.movie_id inner join genre on genre_movie.genre_id=genre.genre_id group by genre.genre having count(movie.title) > 2500;"
+    result = run_query(query, cursor)
+    print_table(result)
 
-def query_four():
-    pass
+def query_four(cursor):
+    query = "select count(*) from actor where gender = 'M';"
+    result = run_query(query, cursor)
+    print_table(result)
 
-def query_five():
-    pass
+def query_five(cursor):
+    query = "select count(genre) from genre;"
+    result = run_query(query, cursor)
+    print_table(result)
 
-def query_six():
-    pass
+def query_six(cursor):
+    query = "select max(year) from movie;"
+    result = run_query(query, cursor)
+    print_table(result)
 
-def query_seven():
-    pass
+def query_seven(cursor):
+    query = "select movie.title, aka_movie.aka_movie_name from movie right outer join aka_movie on movie.movie_id=aka_movie.movie_id where movie.year > 2014;"
+    result = run_query(query, cursor)
+    print_table(result)
 
-def query_eight():
-    pass
+def query_eight(cursor):
+    query = "select keyword.keyword, count(movie.title) from movie inner join movie_keyword on movie.movie_id=movie_keyword.movie_id inner join keyword on movie_keyword.keyword_id=keyword.keyword_id group by keyword.keyword having count(movie.title) > 1000 order by count(movie.title);"
+    result = run_query(query, cursor)
+    print_table(result)
 
-def query_nine():
-    pass
+def query_nine(cursor):
+    query = "select aka_movie.aka_movie_name from aka_movie where year >2016 order by year;"
+    result = run_query(query, cursor)
+    print_table(result)
 
-def query_ten():
-    pass
+def query_ten(cursor):
+    query = "select movie.title from movie where movie.title='Interstellar';"
+    result = run_query(query, cursor)
+    print_table(result)
