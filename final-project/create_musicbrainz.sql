@@ -5,156 +5,156 @@ set search_path to musicbrainz;
 
 create table Artist(
    id integer,
-   gid varchar(40),
-   name varchar(20),
-   sort_name varchar(20),
-   begin_date_year varchar(10),
-   begin_date_month varchar(10),
-   begin_date_day varchar(10),
-   end_date_year varchar(10),
-   end_date_month varchar(10),
-   end_date_day varchar(10),
+   gid varchar(400),
+   name varchar(500),
+   sort_name varchar(500),
+   begin_date_year varchar(500),
+   begin_date_month varchar(500),
+   begin_date_day varchar(500),
+   end_date_year varchar(500),
+   end_date_month varchar(500),
+   end_date_day varchar(500),
    type integer,
-   area varchar(10),
-   gender varchar(10),
-   comment varchar(100),
+   area varchar(500),
+   gender varchar(500),
+   comment varchar(5000),
    edits_pending boolean,
-   last_updated varchar(10),
-   ended varchar(10),
-   begin_area varchar(10),
-   end_area varchar(10)
+   last_updated varchar(500),
+   ended varchar(500),
+   begin_area varchar(500),
+   end_area varchar(500)
 );
 create table Artist_Alias(
    id integer,
    artist integer,
-   name varchar(20),
-   locale varchar(10),
+   name varchar(500),
+   locale varchar(500),
    edits_pending boolean,
-   last_updated decimal(29,3),
-   type varchar(10),
-   sort_name varchar(20),
-   begin_date_year varchar(10),
-   begin_date_month varchar(10),
-   begin_date_day varchar(10),
-   end_date_year varchar(10),
-   end_date_month varchar(10),
-   end_date_day varchar(10),
-   primary_for_locale varchar(10),
-   ended varchar(10)
+   last_updated varchar(500),
+   type integer,
+   sort_name varchar(500),
+   begin_date_year varchar(500),
+   begin_date_month varchar(500),
+   begin_date_day varchar(500),
+   end_date_year varchar(500),
+   end_date_month varchar(500),
+   end_date_day varchar(500),
+   primary_for_locale varchar(500),
+   ended varchar(500)
 );
 create table Artist_Alias_Type(
    id integer,
-   name varchar(20),
-   parent varchar(10),
+   name varchar(500),
+   parent varchar(500),
    child_order boolean,
-   description varchar(10),
-   gid varchar(40)
+   description varchar(5000),
+   gid varchar(400)
 );
 create table Artist_Credit_Name(
    artist_credit integer,
-   position boolean,
+   position integer,
    artist integer,
-   name varchar(10),
-   join_phrase varchar(100)
+   name varchar(500),
+   join_phrase varchar(5000)
 );
 create table Artist_Credit(
    id integer,
-   name varchar(20),
-   artist_count boolean,
+   name varchar(500),
+   artist_count integer
    ref_count integer,
-   created decimal(29,3)
+   created varchar(500)
 );
 create table Track(
    id integer,
-   gid varchar(40),
+   gid varchar(400),
    recording integer,
    medium integer,
-   position boolean,
-   number boolean,
-   name varchar(10),
+   position integer,
+   number integer,
+   name varchar(500),
    artist_credit integer,
    length integer,
    edits_pending boolean,
-   last_updated decimal(29,3),
-   is_data_track varchar(10)
+   last_updated varchar(500),
+   is_data_track varchar(500)
 );
 create table Medium(
    id integer,
    release integer,
-   position boolean,
-   format boolean,
-   name decimal(32,0),
+   position integer,
+   format integer,
+   name varchar(500),
    edits_pending boolean,
-   last_updated decimal(29,3),
+   last_updated varchar(500),
    track_count integer
 );
 create table Recording(
    id integer,
-   gid varchar(40),
-   name varchar(40),
+   gid varchar(400),
+   name varchar(400),
    artist_credit integer,
    length integer,
-   comment varchar(100),
+   comment varchar(5000),
    edits_pending boolean,
-   last_updated varchar(10),
-   video varchar(10)
+   last_updated varchar(500),
+   video varchar(500)
 );
 create table Medium_Format(
    id integer,
-   name varchar(20),
+   name varchar(500),
    parent integer,
-   child_order boolean,
+   child_order integer,
    year integer,
-   has_discids varchar(10),
-   description varchar(10),
-   gid varchar(40)
+   has_discids varchar(500),
+   description varchar(5000),
+   gid varchar(400)
 );
 create table Release(
    id integer,
-   gid varchar(40),
-   name varchar(20),
+   gid varchar(400),
+   name varchar(500),
    artist_credit integer,
    release_group integer,
-   status boolean,
-   packaging boolean,
+   status integer,
+   packaging integer,
    language integer,
    script integer,
    barcode integer,
-   comment varchar(100),
+   comment varchar(5000),
    edits_pending boolean,
-   quality varchar(10),
-   last_updated decimal(29,3)
+   quality varchar(500),
+   last_updated varchar(500)
 );
 create table Release_Group(
    id integer,
-   gid varchar(40),
+   gid varchar(400),
    name varchar(30),
    artist_credit integer,
-   type varchar(10),
-   comment varchar(100),
+   type varchar(500),
+   comment varchar(5000),
    edits_pending boolean,
-   last_updated decimal(29,3)
+   last_updated varchar(500)
 );
 create table Release_Group_Secondary_Type_Join(
    release_group integer,
    secondary_type integer,
-   created varchar(30)
+   created varchar(300)
 );
 create table Release_Group_Secondary_Type(
    id integer,
-   name varchar(10),
-   parent varchar(10),
-   child_order boolean,
-   description varchar(10),
-   gid varchar(40)
+   name varchar(500),
+   parent varchar(500),
+   child_order integer,
+   description varchar(500),
+   gid varchar(400)
 );
 create table Release_Group_Primary_Type(
    id integer,
-   name varchar(10),
-   parent varchar(10),
+   name varchar(500),
+   parent varchar(500),
    child_order integer,
-   description varchar(10),
-   gid varchar(40)
+   description varchar(500),
+   gid varchar(400)
 );
 create table Release_Country(
    release integer,
@@ -168,86 +168,86 @@ create table Country_Area(
 );
 create table Area(
    id integer,
-   gid varchar(40),
-   name varchar(10),
-   type boolean,
+   gid varchar(400),
+   name varchar(500),
+   type integer,
    edits_pending boolean,
-   last_updated decimal(29,3),
-   begin_date_year varchar(10),
-   begin_date_month varchar(10),
-   begin_date_day varchar(10),
-   end_date_year varchar(10),
-   end_date_month varchar(10),
-   end_date_day varchar(10),
-   ended varchar(10),
-   comment varchar(100)
+   last_updated varchar(500)
+   begin_date_year varchar(500),
+   begin_date_month varchar(500),
+   begin_date_day varchar(500),
+   end_date_year varchar(500),
+   end_date_month varchar(500),
+   end_date_day varchar(500),
+   ended varchar(500),
+   comment varchar(5000)
 );
 create table Area_Type(
    id integer,
-   name varchar(10),
-   parent varchar(10),
+   name varchar(500),
+   parent varchar(500),
    child_order integer,
-   description decimal(168,0),
-   gid varchar(40)
+   description varchar(5000,)
+   gid varchar(400)
 );
 create table Area_Alias_Type(
    id integer,
-   name varchar(20),
-   parent varchar(10),
-   child_order boolean,
-   description varchar(10),
-   gid varchar(40)
+   name varchar(500),
+   parent varchar(500),
+   child_order integer,
+   description varchar(500),
+   gid varchar(400)
 );
 create table Area_Alias(
    id integer,
    area integer,
-   name varchar(10),
-   locale varchar(10),
+   name varchar(500),
+   locale varchar(500),
    edits_pending boolean,
-   last_updated decimal(29,3),
-   type varchar(10),
-   sort_name varchar(10),
-   begin_date_year varchar(10),
-   begin_date_month varchar(10),
-   begin_date_day varchar(10),
-   end_date_year varchar(10),
-   end_date_month varchar(10),
-   end_date_day varchar(10),
-   primary_for_locale varchar(10),
-   ended varchar(10)
+   last_updated varchar(500),
+   type varchar(500),
+   sort_name varchar(500),
+   begin_date_year varchar(500),
+   begin_date_month varchar(500),
+   begin_date_day varchar(500),
+   end_date_year varchar(500),
+   end_date_month varchar(500),
+   end_date_day varchar(500),
+   primary_for_locale varchar(500),
+   ended varchar(500)
 );
 create table Place(
    id integer,
-   gid varchar(40),
-   name varchar(20),
-   type boolean,
-   address varchar(100),
+   gid varchar(400),
+   name varchar(500),
+   type integer,
+   address varchar(5000),
    area integer,
-   coordinates varchar(10),
-   comment varchar(100),
+   coordinates varchar(500),
+   comment varchar(5000),
    edits_pending boolean,
-   last_updated decimal(29,3),
-   begin_date_year varchar(10),
-   begin_date_month varchar(10),
-   begin_date_day varchar(10),
-   end_date_year varchar(10),
-   end_date_month varchar(10),
-   end_date_day varchar(10),
-   ended varchar(10)
+   last_updated varchar(500),
+   begin_date_year varchar(500),
+   begin_date_month varchar(500),
+   begin_date_day varchar(500),
+   end_date_year varchar(500),
+   end_date_month varchar(500),
+   end_date_day varchar(500),
+   ended varchar(500)
 );
 create table Place_Type(
    id integer,
-   name varchar(20),
-   parent varchar(10),
+   name varchar(500),
+   parent varchar(500),
    child_order integer,
-   description decimal(173,0),
-   gid varchar(40)
+   description varchar(5000),
+   gid varchar(400)
 );
 create table Gender(
-   id boolean,
-   name varchar(10),
-   parent varchar(10),
-   child_order boolean,
-   description varchar(10),
-   gid varchar(40)
+   id integer,
+   name varchar(500),
+   parent varchar(500),
+   child_order integer,
+   description varchar(5000),
+   gid varchar(400)
 );
