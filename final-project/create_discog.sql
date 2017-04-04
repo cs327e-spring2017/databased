@@ -5,23 +5,23 @@ set search_path to discog;
 
 create table Artists(
    tist_id integer,
-   name varchar(10),
-   realname varchar(20)
+   name varchar(10000),
+   realname varchar(20000)
 );
 create table Genres(
    genre_id integer,
-   name varchar(20)
+   name varchar(20000)
 );
 create table Labels(
    label_id integer,
-   name varchar(10)
+   name varchar(10000)
 );
 create table Releases(
    release_id integer,
-   title varchar(30),
+   title varchar(30000),
    num_tracks integer,
-   released varchar(10),
-   country varchar(10)
+   released varchar(10000),
+   country varchar(10000)
 );
 create table Releases_Artists(
    release_id integer,
@@ -29,7 +29,7 @@ create table Releases_Artists(
 );
 create table Releases_Formats(
    release_id integer,
-   format_type varchar(10)
+   format_type varchar(10000)
 );
 create table Releases_Genres(
    release_id integer,
