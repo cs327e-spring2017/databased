@@ -1,4 +1,4 @@
-/* C:/Users/az-su/Documents/databased/final-project/create_discog.sql */
+/* \i C:/Users/az-su/Documents/databased/final-project/create_discog.sql */
 drop schema if exists discog cascade;
 create schema discog;
 set search_path to discog;
@@ -33,7 +33,7 @@ create table Releases_Formats(
 );
 create table Releases_Genres(
    release_id integer,
-   genre_id boolean
+   genre_id integer
 );
 create table Releases_Labels(
    release_id integer,
