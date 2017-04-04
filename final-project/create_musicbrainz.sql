@@ -60,7 +60,7 @@ create table Artist_Credit_Name(
 create table Artist_Credit(
    id integer,
    name varchar(500),
-   artist_count integer
+   artist_count integer,
    ref_count integer,
    created varchar(500)
 );
@@ -172,7 +172,7 @@ create table Area(
    name varchar(500),
    type integer,
    edits_pending boolean,
-   last_updated varchar(500)
+   last_updated varchar(500),
    begin_date_year varchar(500),
    begin_date_month varchar(500),
    begin_date_day varchar(500),
@@ -187,7 +187,7 @@ create table Area_Type(
    name varchar(500),
    parent varchar(500),
    child_order integer,
-   description varchar(5000,)
+   description varchar(5000),
    gid varchar(400)
 );
 create table Area_Alias_Type(
