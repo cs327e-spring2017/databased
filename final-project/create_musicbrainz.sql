@@ -18,7 +18,7 @@ create table Artist(
    area varchar(500),
    gender varchar(500),
    comment varchar(5000),
-   edits_pending boolean,
+   edits_pending integer,
    last_updated varchar(500),
    ended varchar(500),
    begin_area varchar(500),
@@ -29,7 +29,7 @@ create table Artist_Alias(
    artist integer,
    name varchar(500),
    locale varchar(500),
-   edits_pending boolean,
+   edits_pending integer,
    last_updated varchar(500),
    type integer,
    sort_name varchar(500),
@@ -46,7 +46,7 @@ create table Artist_Alias_Type(
    id integer,
    name varchar(500),
    parent varchar(500),
-   child_order boolean,
+   child_order integer,
    description varchar(5000),
    gid varchar(400)
 );
@@ -54,8 +54,8 @@ create table Artist_Credit_Name(
    artist_credit integer,
    position integer,
    artist integer,
-   name varchar(500),
-   join_phrase varchar(5000)
+   name varchar(50000),
+   join_phrase varchar(500000)
 );
 create table Artist_Credit(
    id integer,
@@ -70,11 +70,11 @@ create table Track(
    recording integer,
    medium integer,
    position integer,
-   number integer,
-   name varchar(500),
+   number varchar(500),
+   name varchar(60000),
    artist_credit integer,
    length integer,
-   edits_pending boolean,
+   edits_pending integer,
    last_updated varchar(500),
    is_data_track varchar(500)
 );
@@ -84,18 +84,18 @@ create table Medium(
    position integer,
    format integer,
    name varchar(500),
-   edits_pending boolean,
+   edits_pending integer,
    last_updated varchar(500),
    track_count integer
 );
 create table Recording(
    id integer,
    gid varchar(400),
-   name varchar(400),
+   name varchar(40000),
    artist_credit integer,
    length integer,
    comment varchar(5000),
-   edits_pending boolean,
+   edits_pending integer,
    last_updated varchar(500),
    video varchar(500)
 );
@@ -112,7 +112,7 @@ create table Medium_Format(
 create table Release(
    id integer,
    gid varchar(400),
-   name varchar(500),
+   name varchar(50000),
    artist_credit integer,
    release_group integer,
    status integer,
@@ -121,18 +121,18 @@ create table Release(
    script integer,
    barcode integer,
    comment varchar(5000),
-   edits_pending boolean,
+   edits_pending integer,
    quality varchar(500),
    last_updated varchar(500)
 );
 create table Release_Group(
    id integer,
    gid varchar(400),
-   name varchar(30),
+   name varchar(30000),
    artist_credit integer,
    type varchar(500),
-   comment varchar(5000),
-   edits_pending boolean,
+   comment varchar(50000),
+   edits_pending integer,
    last_updated varchar(500)
 );
 create table Release_Group_Secondary_Type_Join(
@@ -171,7 +171,7 @@ create table Area(
    gid varchar(400),
    name varchar(500),
    type integer,
-   edits_pending boolean,
+   edits_pending integer,
    last_updated varchar(500),
    begin_date_year varchar(500),
    begin_date_month varchar(500),
@@ -203,7 +203,7 @@ create table Area_Alias(
    area integer,
    name varchar(500),
    locale varchar(500),
-   edits_pending boolean,
+   edits_pending integer,
    last_updated varchar(500),
    type varchar(500),
    sort_name varchar(500),
@@ -219,13 +219,13 @@ create table Area_Alias(
 create table Place(
    id integer,
    gid varchar(400),
-   name varchar(500),
+   name varchar(50000),
    type integer,
    address varchar(5000),
    area integer,
    coordinates varchar(500),
-   comment varchar(5000),
-   edits_pending boolean,
+   comment varchar(50000),
+   edits_pending integer,
    last_updated varchar(500),
    begin_date_year varchar(500),
    begin_date_month varchar(500),
