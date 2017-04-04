@@ -55,11 +55,11 @@ create table Artist_Credit_Name(
    position integer,
    artist integer,
    name varchar(50000),
-   join_phrase varchar(500000)
+   join_phrase varchar(50000)
 );
 create table Artist_Credit(
    id integer,
-   name varchar(500),
+   name varchar(50000),
    artist_count integer,
    ref_count integer,
    created varchar(500)
@@ -119,7 +119,7 @@ create table Release(
    packaging integer,
    language integer,
    script integer,
-   barcode integer,
+   barcode varchar(5000),
    comment varchar(5000),
    edits_pending integer,
    quality varchar(500),
