@@ -1,0 +1,126 @@
+dev=# select * from discog.artists order by random() limit 10;
+ tist_id |         name          |       realname
+---------+-----------------------+-----------------------
+  715497 | Page Wood             | Page Wood
+  204071 | DJ Snair              | DJ Snair
+ 1276932 | G. Carella (2)        | G. Carella (2)
+ 1137551 | The Gospel Keynotes   | The Gospel Keynotes
+ 1132493 | Erna Sommer           | Erna Sommer
+  547985 | Millard Buchholz      | Millard Buchholz
+  987104 | Eileen Clark          | Eileen Clark
+  911754 | Hot Skin Apartment    | Hot Skin Apartment
+  815486 | Jack Philpot          | Jack Philpot
+  537606 | Thunder Hammer Attack | Thunder Hammer Attack
+(10 rows)
+
+
+dev=# select * from discog.genres order by random() limit 10;
+ genre_id |         name
+----------+----------------------
+        6 | Stage & Screen
+       14 | Children's
+        8 | Hip Hop
+       11 | Folk World & Country
+       13 | Blues
+        7 | Non-Music
+        9 | Pop
+        3 | Rock
+        1 | Electronic
+        4 | Latin
+(10 rows)
+
+
+dev=# select * from discog.labels order by random() limit 10;
+ label_id |                     name
+----------+----------------------------------------------
+   404764 | Techno Sound
+   776246 | Directed Artists Ltd.
+  1167585 | G.O.F.A.A. Records Australia
+   166115 | Not On Label (All Living Fear Self-released)
+  1073407 | Collection Danse Parade
+   333197 | deJ Productions
+   104369 | Duryea Entertainment
+   154175 | Ab Ovo Music
+   578246 | ABM Music (2)
+  1166427 | Apocalyse Records
+(10 rows)
+
+
+dev=# select * from discog.releases order by random() limit 10;
+ release_id |                title                | num_tracks |  released  |   country
+------------+-------------------------------------+------------+------------+-------------
+    1839516 | The Devil And The Whore             |         10 | 2006       | Netherlands
+     805236 | Pac-man-kuume / On Syd+ñn Syrj+ñll+ñ+ñn |          2 | 1983       | Finland
+    1682916 | Pax Titania                         |          2 | 2009-02-00 | US
+     432507 | Come On And Dance                   |          3 |            | Netherlands
+     123309 | Voices In A Dark Room               |         17 | 1999-02-00 | Netherlands
+     764821 | The Anti-Album                      |         20 | 2003       | US
+     525138 | Christmas                           |         14 | 12/6/2009  | UK
+    1186381 | Snow White Lies                     |          4 | 1995       | UK
+    1366390 | Acuario                             |          2 | 2002       | Spain
+     178349 | Shining                             |          2 | 2003       | UK
+(10 rows)
+
+
+dev=# select * from discog.releases_artists order by random() limit 10;
+ release_id | artist_id
+------------+-----------
+     147256 |     12072
+    2041913 |   1132413
+    3396932 |    163384
+    6970422 |    251595
+    5757901 |   2493596
+    2708351 |      5668
+    6949284 |    463597
+    4433316 |    170355
+    6677256 |     46003
+    7577347 |    252133
+(10 rows)
+
+
+dev=# select * from discog.releases_formats order by random() limit 10;
+ release_id | format_type
+------------+-------------
+    2638979 | Cassette
+    8718800 | CD
+    4126765 | DVD
+    5835994 | File
+    3002577 | Vinyl
+    8457901 | CD
+     545699 | Vinyl
+    3972039 | CD
+    6396879 | CD
+    7845420 | CD
+(10 rows)
+
+
+dev=# select * from discog.releases_genres order by random() limit 10;
+ release_id | genre_id
+------------+----------
+     569249 |        1
+    1643989 |        1
+    1638745 |        1
+    1420546 |        9
+     238919 |        1
+     366142 |        8
+    1637254 |        1
+     740832 |        1
+     793456 |        1
+     285101 |        1
+(10 rows)
+
+
+dev=# select * from discog.releases_labels order by random() limit 10;
+ release_id | label_id
+------------+----------
+     979315 |   675447
+    5928795 |   992437
+    4037573 |   347996
+    6078989 |   647171
+    9802698 |      654
+    2867195 |   238664
+    1016142 |    59214
+    6208692 |  1072895
+    1640819 |  1052961
+    3805583 |   405416
+(10 rows)

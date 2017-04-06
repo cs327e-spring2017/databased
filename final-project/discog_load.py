@@ -32,5 +32,14 @@ with open('load_discog.sql', 'w') as outfile:
         finalSQL = line1+line2+endText
         print(finalSQL)
         outfile.write(finalSQL)
-        
+
+with open('check_discog.sql', 'w') as outfile:
+    for fname in filenames:
+        noPath = ''.join(fname.rsplit('\\', 1))
+        noExtension = noPath.replace('.csv','')
+        line1 = "select * from discog."
+        line2 = " order by random() limit 10; \n"
+        finalSQL = line1+noExtension+line2
+        print(finalSQL)
+        outfile.write(finalSQL)       
 

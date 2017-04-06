@@ -1,0 +1,24 @@
+/* C:/Users/az-su/Documents/databased/final-project/check_musicbrainz.sql */
+select * from musicbrainz.artist order by random() limit 10;
+select * from musicbrainz.artist_alias order by random() limit 10;
+select * from musicbrainz.artist_alias_type order by random() limit 10;
+select * from musicbrainz.artist_credit_name order by random() limit 10;
+select * from musicbrainz.artist_credit order by random() limit 10;
+select * from musicbrainz.track order by random() limit 10;
+select * from musicbrainz.medium order by random() limit 10;
+select * from musicbrainz.recording order by random() limit 10;
+select * from musicbrainz.medium_format order by random() limit 10;
+select * from musicbrainz.release order by random() limit 10;
+select * from musicbrainz.release_group order by random() limit 10;
+select * from musicbrainz.release_group_secondary_type_join order by random() limit 10;
+select * from musicbrainz.release_group_secondary_type order by random() limit 10;
+select * from musicbrainz.release_group_primary_type order by random() limit 10;
+select * from musicbrainz.release_country order by random() limit 10;
+select * from musicbrainz.country_area order by random() limit 10;
+select * from musicbrainz.area order by random() limit 10;
+select * from musicbrainz.area_type order by random() limit 10;
+select * from musicbrainz.area_alias_type order by random() limit 10;
+select * from musicbrainz.area_alias order by random() limit 10;
+select * from musicbrainz.place order by random() limit 10;
+select * from musicbrainz.place_type order by random() limit 10;
+select * from musicbrainz.gender order by random() limit 10;

@@ -33,4 +33,12 @@ with open('load_musicbrainz.sql', 'w') as outfile:
         print(finalSQL)
         outfile.write(finalSQL)
         
-
+with open('check_musicbrainz.sql', 'w') as outfile:
+    for fname in filenames:
+        noPath = ''.join(fname.rsplit('\\', 1))
+        noExtension = noPath.replace('.csv','')
+        line1 = "select * from musicbrainz."
+        line2 = " order by random() limit 10;\n"
+        finalSQL = line1+noExtension+line2
+        print(finalSQL)
+        outfile.write(finalSQL)   
