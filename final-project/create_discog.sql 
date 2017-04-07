@@ -1,4 +1,3 @@
-/* \i C:/Users/az-su/Documents/databased/final-project/create_discog.sql */
 drop schema if exists discog cascade;
 create schema discog;
 set search_path to discog;
