@@ -1,8 +1,8 @@
 We should list the columns we need to look at here. 
 
 1: Which genre has the most artists?
-discog/genre.genre_id
-discog/genre.name
+discog/genres.genre_id
+discog/genres.name
 discog/releases_genres.release_id
 discog/releases_genre_id
 discog/releases.release_id
@@ -58,10 +58,10 @@ musicbrainz/artist.name
 discog/artists.name
 
 8. Which genres have song titles with more than 30 characters?
-discog/genre.genre_id
-discog/genre.name
+discog/genres.genre_id
+discog/genres.name
 discog/releases_genres.release_id
-discog/releases_genre_id
+discog/releases_genres.genre_id
 discog/releases.release_id
 discog/releases.title
 musicbrainz/release.name
@@ -91,3 +91,5 @@ discog/releases_genres.release_id
 discog/releases_genres.genre_id
 discog/genres.genre_id
 discog/genres.name
+
+More work was trimmed off by not checking ids, they should just be integers anyway. 
