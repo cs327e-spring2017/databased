@@ -27,3 +27,22 @@ alter table musicbrainz.release add column cname varchar(865);
 update musicbrainz.release set cname = name;
 alter table musicbrainz.medium_format add column cname varchar(25);
 update musicbrainz.medium_format set cname = name;
+
+update musicbrainz.artist set cname = initcap(btrim(split_part(cname,
+';' , 1)));
+update musicbrainz.artist set cname = initcap(btrim(split_part(cname,
+'/' , 1)));
+update musicbrainz.artist set cname = initcap(btrim(split_part(cname,
+'(' , 1)));
+update musicbrainz.artist set cname = initcap(btrim(split_part(cname,
+'[' , 1)));
+update musicbrainz.artist set cname = initcap(btrim(split_part(cname,
+':' , 1)));
+update musicbrainz.artist set cname = initcap(btrim(split_part(cname,
+'-' , 1)));
+update musicbrainz.artist set cname = initcap(btrim(split_part(cname,
+'...' , 1)));
+update musicbrainz.artist set cname = initcap(btrim(split_part(cname,
+'with' , 1)));
+update musicbrainz.artist set cname = initcap(btrim(split_part(cname,
+'Vs.' , 1)));
