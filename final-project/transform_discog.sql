@@ -103,7 +103,17 @@ update discog.Releases set day = btrim(split_part(released, '-' ,3));
 update discog.Releases set day = btrim(split_part(released, '/' ,2))
 where length(btrim(split_part(released, '/' , 2))) < 3 and day = '';
 
-alter table discog.releases add column creleased date;
-update discog.releases set creleased = to_date(month || '/'||day||'/'||year, 'MM/DD//YYYY');
+/* Dropping day and month since most of the data is year only */
+alter table discog.releases drop column day;
+alter table discog.releases drop column month;
 
 
+select name, cname from discog.genres order by random() limit 25;
+select title, ctitle from discog.releases order by random() limit 25;
+
+
+update discog.genres set name = cname;
+
+update discog.artists set name = cname;
+
+update discog.releases set title = ctitle;

@@ -118,3 +118,9 @@ update musicbrainz.medium_format set cname = initcap(btrim(split_part(cname,
 'with' , 1)));
 update musicbrainz.medium_format set cname = initcap(btrim(split_part(cname,
 'Vs.' , 1)));
+
+
+update musicbrainz.artist set name = cname;
+update musicbrainz.artist_credit set name = cname;
+update musicbrainz.release set name = cname;
+update musicbrainz.medium_format set name = cname;
