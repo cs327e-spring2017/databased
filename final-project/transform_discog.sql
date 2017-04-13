@@ -86,21 +86,24 @@ update discog.releases set ctitle = initcap(btrim(split_part(ctitle,
 
 /*DATE*/
 /*discog/releases.released */
-select day, month, year from discog.releases order by random() limit 50;
+select day, month, year, released from discog.releases order by random() limit 25;
 
 alter table discog.Releases add column year char(4);
 update discog.Releases set year = btrim(split_part(released, '/' ,3));
 update discog.Releases set year = btrim(split_part(released, '-' , 1))
 where length(btrim(split_part(released, '-' , 1))) = 4 and year = '';
 
-/*ERROR*/
-alter table discog.Releases add column month char(4);
-update discog.Releases set month = btrim(split_part(released, '/' ,1));
-update discog.Releases set month = btrim(split_part(released, '-' , 2))
-where length(btrim(split_part(released, '-' , 2))) = 2 and month = '';
+alter table discog.Releases add column month char(10);
+update discog.Releases set month = btrim(split_part(released, '-' ,2));
+update discog.Releases set month = btrim(split_part(released, '/' ,1))
+where length(btrim(split_part(released, '/' , 1))) < 3 and month = '';
 
-alter table discog.Releases add column day char(2);
-update discog.Releases set day = btrim(split_part(released, '/' ,2));
-update discog.Releases set day = btrim(split_part(released, '-' , 3))
-where length(btrim(split_part(released, '-' , 3))) = 2 and day = '';
+alter table discog.Releases add column day char(10);
+update discog.Releases set day = btrim(split_part(released, '-' ,3));
+update discog.Releases set day = btrim(split_part(released, '/' ,2))
+where length(btrim(split_part(released, '/' , 2))) < 3 and day = '';
+
+alter table discog.releases add column creleased date;
+update discog.releases set creleased = to_date(month || '/'||day||'/'||year, 'MM/DD//YYYY');
+
 
