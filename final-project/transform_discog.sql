@@ -110,7 +110,6 @@ alter table discog.releases drop column month;
 
 select name, cname from discog.genres order by random() limit 25;
 select title, ctitle from discog.releases order by random() limit 25;
-
 
 update discog.genres set name = cname;
 

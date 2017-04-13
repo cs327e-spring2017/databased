@@ -93,3 +93,4 @@ discog/genres.genre_id
 discog/genres.name
 
 More work was trimmed off by not checking ids, they should just be integers anyway. 
+Date was kept as year only.
