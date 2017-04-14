@@ -1,7 +1,37 @@
 /* C:/Users/az-su/Documents/databased/final-project/queries.sql */
 
+set search_path to unified;
 
+select d_genres.name, count(d_artists.name) 
+from d_genres 
+inner join d_releases_genres 
+on d_genres.genre_id = d_releases_genres.genre_id
+inner join d_releases
+on d_releases_genres.release_id = d_releases.release_id
+inner join d_releases_artists
+on d_releases.release_id = d_releases_artists.release_id
+inner join d_artists
+on d_releases_artists.artist_id = d_artists.artist_id
+group by d_genres.name;
 
+select mb_area.name, count(mb_artist.id)
+from mb_area
+inner join mb_country_area
+on mb_area.id = mb_country_area.area
+inner join mb_release_country
+on mb_country_area.area = mb_release_country.country
+inner join mb_release
+on mb_release_country.release = mb_release.id
+inner join mb_release_group
+on mb_release.release_group = mb_release_group.id
+inner join mb_artist_credit
+on mb_release_group.artist_credit = mb_artist_credit.id
+inner join mb_artist_credit_name
+on mb_artist_credit.name = mb_artist_credit_name.artist_credit
+inner join mb_artist
+on mb_artist_credit_name.artist = mb_artist.id
+group by mb_area.name
+having count(mb_artist.id) > 5;
 
 
 /*OLD QUERIES FOR EXAMPLES

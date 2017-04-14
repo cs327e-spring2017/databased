@@ -30,12 +30,14 @@ create table unified.d_releases_formats as select release_id, format_type from d
 create table unified.mb_release_group as select id, artist_Credit from musicbrainz.release_group;
 create table unified.mb_artist_credit as select id, cname as name from musicbrainz.artist_credit;
 create table unified.mb_artist_credit_name as select artist_credit, artist from musicbrainz.artist_credit_name;
-create table unified.mb_artist as select id, gender, cname as name from musicbrainz.artist;
+create table unified.mb_artist as select id, gender, cname as name, area from musicbrainz.artist;
 create table unified.mb_release as select id, cname as name, release_group from musicbrainz.release;
 create table unified.mb_medium_format as select id, cname as name from musicbrainz.medium_format;
 create table unified.mb_medium as select id, release from musicbrainz.medium;
 create table unified.mb_release_country as select release, country from musicbrainz.release_country;
 create table unified.mb_gender as select id, name from musicbrainz.gender;
+create table unified.mb_area as select id, name from musicbrainz.area;
+create table unified.mb_country_area as select are as area from musicbrainz.country_area;
 
 
 

@@ -1,5 +1,5 @@
 1. Which genre has the most artists?
-2. Which countries have more than 1 artist? 
+2. Which countries have more than 5 artists? 
 3. Which year had the most releases? 
 4. What is the most common medium used for recording? 
 5. What is the oldest release in the United Kingdom?  

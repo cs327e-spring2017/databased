@@ -5,7 +5,7 @@ select name from artist order by random() limit 50;
 select name from artist_credit order by random() limit 50;
 select name from release order by random() limit 50;
 select name from medium_format order by random() limit 50;
-
+select name from area order by random() limit 50;
 
 select max(get_utf8_bytes(name)) from musicbrainz.artist;
 select max(get_utf8_bytes(name)) from musicbrainz.artist_credit;
@@ -101,7 +101,6 @@ update musicbrainz.release set cname = initcap(btrim(split_part(cname,
 
 update musicbrainz.medium_format set cname = initcap(btrim(split_part(cname,
 ';' , 1)));
-
 update musicbrainz.medium_format set cname = initcap(btrim(split_part(cname,
 '/' , 1)));
 update musicbrainz.medium_format set cname = initcap(btrim(split_part(cname,

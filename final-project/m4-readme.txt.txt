@@ -11,7 +11,7 @@ discog/artists.tist_id
 discog/artists.name
 musicbrainz/artist.name
 
-2: Which countries have more than 1 artist? 
+2: Which countries have more than 5 artists? 
 musicbrainz/release_country.country
 musicbrainz/release.id
 musicbrainz/release.release_group
