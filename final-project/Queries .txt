@@ -1,10 +1,10 @@
-1. Which genre has the most artists?
-2. Which countries have more than 5 artists? 
-3. Which year had the most releases? 
-4. What is the most common medium used for recording? 
-5. What is the oldest release in the United Kingdom?  
-6. Which gender is most common? 
+1: Which genre has the most artists?
+2: Which countries have more than 5 artists? 
+3. Which year had the most releases?
+4. What is Nepal's most released genre?
+5. What are newest releases in the United Kingdom?
+6. Which gender is most common?
 7. What is the most common name of artists? 
-8. Which genres have song titles with more than 30 characters? 
+8. Which genres have the most releases?
 9. Which gender has the most classical songs?
-10. Which countries have releases in the hip-hop genre? 
+10. Which areas have releases in the hip-hop genre? 

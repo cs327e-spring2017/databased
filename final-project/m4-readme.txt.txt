@@ -29,7 +29,7 @@ musicbrainz/release.name
 discog/releases.title
 discog/releases.released
 
-4. What is the most common medium used for recording?
+4. What is Nepal's most released genre?
 discog/releases.release_id
 discog/releases_formats.release_id
 discog/releases_formats.format_type
@@ -39,7 +39,7 @@ musicbrainz/medium.id
 musicbrainz/medium.release
 musicbrainz/release.id
 
-5. What is the oldest release in the United Kingdom?
+5. What are newest releases in the United Kingdom?
 discog/releases.released
 discog/releases.title
 musicbrainz/release.name
@@ -57,7 +57,7 @@ musicbrainz/gender.name
 musicbrainz/artist.name
 discog/artists.name
 
-8. Which genres have song titles with more than 30 characters?
+8. Which genres have the most releases?
 discog/genres.genre_id
 discog/genres.name
 discog/releases_genres.release_id
@@ -80,7 +80,7 @@ discog/releases_genres.genre_id
 discog/genres.genre_id
 discog/genres.name
 
-10. Which countries have releases in the hip-hop genre? 
+10. Which areas have releases in the hip-hop genre? 
 musicbrainz/release_country.country
 musicbrainz/release_country.release
 musicbrainz/release.id
@@ -93,4 +93,9 @@ discog/genres.genre_id
 discog/genres.name
 
 More work was trimmed off by not checking ids, they should just be integers anyway. 
-Date was kept as year only.
+Date was kept as year only. Couldn't be changed to integer because some are characters (???).
+Some queries had to be changed due to limitations in the data.
+Note: not all column refs here are correct.
+Some of these queries are literally cancer to look at because the names are really long...
+Also, some shcemas weren't correct and had to be fixed.
+Some queries we picked got realy long results so they were limited.
