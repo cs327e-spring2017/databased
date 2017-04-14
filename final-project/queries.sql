@@ -1,45 +1,5 @@
 ﻿/* C:/Users/az-su/Documents/databased/final-project/queries.sql */
 
-select d_genres.name, count(d_artists.artist_id)
-from d_genres
-inner join d_releases_genres
-on d_genres.genre_id=d_releases_genres.genre_id
-inner join d_releases
-on d_releases_genres.release_id=d_releases.release_id
-inner join d_releases_artists
-on d_releases.release_id=d_releases_artists.release_id
-inner join d_artists
-on d_releases_artists.artist_id=d_artists.artist_id
-inner join mb_artist 
-on d_artists.name=mb_artist.name
-group by d_genres.name
-order by count(d_artists.artist_id) Desc;
-
-
-select mb_release_country.country, count(mb_artist.id)
-from mb_release_country
-inner join mb_release
-on mb_release_country.country=mb_release.id
-inner join mb_release_group
-on mb_release.release_group=mb_release_group.id
-inner join mb_artist_credit
-on mb_release_group.artist_credit=mb_artist_credit.id
-inner join mb_artist_credit_name
-on mb_artist_credit.name=mb_artist_credit_name.artist_credit
-inner join mb_artist
-on mb_artist_credit_name.artist=mb_artist.id
-inner join d_artists
-on mb_artist.name=d_artists.name
-group by mb_release_country.country
-having count(mb_artist.name) > 1;
-
-select year, count(d_releases.title)
-from d_releases
-inner join mb_release
-on d_releases.title=mb_release.name
-group by year
-order by count(d_releases.release_id) desc
-
 set search_path to unified;
 
 select d_genres.name, count(d_artists.name) 
@@ -52,7 +12,8 @@ inner join d_releases_artists
 on d_releases.release_id = d_releases_artists.release_id
 inner join d_artists
 on d_releases_artists.artist_id = d_artists.artist_id
-group by d_genres.name;
+group by d_genres.name
+order by count(d_artists.name) desc;
 
 select mb_area.name, count(mb_artist.id)
 from mb_area
@@ -72,6 +33,82 @@ inner join mb_artist
 on mb_artist_credit_name.artist = mb_artist.id
 group by mb_area.name
 having count(mb_artist.id) > 5;
+
+
+select d_releases.year, count(mb_release.name)
+from mb_release
+inner join d_releases
+on mb_release.name=d_releases.title
+group by d_releases.year 
+having count(mb_release.name) > 800000;
+
+select d_releases_formats.format_type, count(d_releases_formats.format_type)
+from d_releases_formats
+inner join d_releases
+on d_releases_formats.release_id=d_releases.release_id
+inner join mb_medium_format
+on d_releases_formats.format_type=mb_medium_format.name
+inner join mb_medium 
+on mb_medium_format.id=mb_medium.format
+inner join mb_release
+on mb_medium.release=mb_release.id
+group by d_releases_formats.format_type;
+
+
+--select d_releases.title, min(d_releases.year)
+--from d_releases
+--inner join mb_release
+--on d_releases.title=mb_release.name
+--inner join mb_release_country
+--on mb_release.id=mb_release_country.release
+--where mb_release = 'United Kingdom'
+--group by d_releases.title;
+
+
+--Q6
+
+
+
+select mb_artist.name, count(mb_artist.name)
+from mb_artist
+inner join d_artists
+on mb_artist.name=d_artists.name
+group by mb_artist.name
+having count(mb_artist.name) > 10;
+
+
+select d_genres.name
+from d_genres
+inner join d_releases_genres
+on d_genres.genre_id=d_releases_genres.genre_id
+inner join d_releases
+on d_releases_genres.release_id=d_releases.release_id
+inner join mb_release
+on d_releases.title=mb_release.name
+group by d_genres.name
+having length(d_releases.title) > 30;
+
+
+--Q9
+
+
+
+select mb_area.name
+from mb_area
+inner join mb_country_area
+on mb_area.id = mb_country_area.area
+inner join mb_release_country
+on mb_country_area.area = mb_release_country.country
+inner join mb_release
+on mb_release_country.release = mb_release.id
+inner join d_releases 
+on mb_release.name=d_releases.title
+inner join d_releases_genres
+on d_releases.release_id=d_releases_genres.release_id
+inner join d_genres
+on d_releases_genres.genre_id=d_genres.genre_id
+where genre = 'hip-hop'
+group by mb_area.name
 
 
 /*OLD QUERIES FOR EXAMPLES
