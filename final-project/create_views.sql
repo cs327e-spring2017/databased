@@ -1,8 +1,10 @@
-﻿/* \i C:/Users/az-su/Documents/databased/final-project/queries.sql */
+﻿/* \i C:/Users/az-su/Documents/databased/final-project/create_views.sql */
 
 set search_path to unified;
 
+--Time: 1576ms
 /* 1: Which genre has the most artists? */
+create or replace view most_artists as 
 select d_genres.name, count(d_artists.name) 
 from d_genres 
 inner join d_releases_genres 
@@ -16,7 +18,9 @@ on d_releases_artists.artist_id = d_artists.artist_id
 group by d_genres.name
 order by count(d_artists.name) desc;
 
+--Time: 1972ms
 /*2: Which countries have more than 5 artists? */
+create or replace view artists_countries as 
 select mb_area.name, count(mb_artist.id)
 from mb_area
 inner join mb_country_area
@@ -36,7 +40,9 @@ on mb_artist_credit_name.artist = mb_artist.id
 group by mb_area.name
 having count(mb_artist.id) > 5;
 
+--Time: 2735ms
 /*3. Which year had the most releases?*/
+create or replace view most_releases as 
 select d_releases.year, count(mb_release.name)
 from mb_release
 inner join d_releases
@@ -45,7 +51,9 @@ group by d_releases.year
 having count(mb_release.name) > 800000
 limit 150;
 
+--Time: 730ms
 /*4. What is Nepal's most released genre?*/
+create or replace view releases_nepal as 
 select d_genres.name, count(mb_release.id)
 from mb_area
 inner join mb_country_area
@@ -64,7 +72,9 @@ where mb_area.name = 'Nepal'
 group by d_genres.name
 order by count(mb_release.id) desc;
 
+--Time: 1466ms
 /*5. What are newest releases in the United Kingdom?*/
+create or replace view newest_releases_uk as 
 select d_releases.title, d_releases.year
 from d_releases
 inner join mb_release
@@ -79,7 +89,9 @@ where mb_area.name = 'United Kingdom' and d_releases.year != 'None'
 order by d_releases.year desc
 limit 150;
 
+--Time: 
 /*6. Which gender is most common?*/
+create or replace view common_genders as 
 select mb_gender.name, count(mb_artist.id)
 from mb_gender
 inner join mb_artist
@@ -87,7 +99,9 @@ on mb_gender.id = mb_artist.gender
 group by mb_gender.name
 order by count(mb_artist.id) desc;
 
+--Time: 224 ms
 /*7. What is the most common name of artists? */
+create or replace view common_names as 
 select mb_artist.name as mb_name, count(mb_artist.name) as mb_count
 from mb_artist
 full outer join d_artists 
@@ -96,7 +110,9 @@ group by mb_artist.name, d_artists.name
 order by count(mb_artist.name) desc
 limit 150;
 
+--Time: 2161ms
 /*8. Which genres have the most releases?*/
+create or replace view genres_releases as 
 select d_genres.name, count(d_releases.title) 
 from d_genres 
 inner join d_releases_genres 
@@ -106,7 +122,9 @@ on d_releases_genres.release_id = d_releases.release_id
 group by d_genres.name
 order by count(d_releases.title) desc;
 
+--Time: 1597ms
 /*9. Which gender has the most classical songs?*/
+create or replace view gender_classical as 
 select mb_gender.name, count(d_releases.title)
 from mb_gender
 inner join mb_artist
@@ -128,7 +146,9 @@ on d_releases_genres.genre_id = d_genres.genre_id
 where d_genres.name = 'Classical'
 group by mb_gender.name;
 
+--Time: 1228ms
 /*10. Which areas have releases in the hip-hop genre? */
+create or replace view releases_hip_hop as 
 select mb_area.name
 from mb_area
 inner join mb_country_area
@@ -146,3 +166,23 @@ on d_releases_genres.genre_id=d_genres.genre_id
 where d_genres.name = 'Hip Hop'
 group by mb_area.name;
 
+\timing
+\pset pager
+
+select * from most_artists;
+
+select * from artists_countries;
+
+select * from most_releases;
+
+select * from releases_nepal;
+
+select * from newest_releases_uk;
+
+select * from common_genders;
+
+select * from common_names;
+
+select * from gender_classical;
+
+select * from releases_hip_hop;
