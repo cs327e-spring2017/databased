@@ -169,20 +169,20 @@ group by mb_area.name;
 \timing
 \pset pager
 
-select * from most_artists;
+select * from v_most_artists;
 
-select * from artists_countries;
+select * from v_artists_countries;
 
-select * from most_releases;
+select * from v_most_releases;
 
-select * from releases_nepal;
+select * from v_releases_nepal;
 
-select * from newest_releases_uk;
+select * from v_newest_releases_uk;
 
-select * from common_genders;
+select * from v_common_genders;
 
-select * from common_names;
+select * from v_common_names;
 
-select * from gender_classical;
+select * from v_gender_classical;
 
-select * from releases_hip_hop;
+select * from v_releases_hip_hop;
