@@ -89,7 +89,7 @@ where mb_area.name = 'United Kingdom' and d_releases.year != 'None'
 order by d_releases.year desc
 limit 150;
 
---Time: 
+--Time: 293 ms
 /*6. Which gender is most common?*/
 create or replace view v_common_genders as 
 select mb_gender.name, count(mb_artist.id)
@@ -177,6 +177,8 @@ select * from v_most_releases;
 
 select * from v_releases_nepal;
 
+select * from v_genres_releases;
+
 select * from v_newest_releases_uk;
 
 select * from v_common_genders;
@@ -186,3 +188,5 @@ select * from v_common_names;
 select * from v_gender_classical;
 
 select * from v_releases_hip_hop;
+
+\dv
