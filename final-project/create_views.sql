@@ -4,7 +4,7 @@ set search_path to unified;
 
 --Time: 1576ms
 /* 1: Which genre has the most artists? */
-create or replace view most_artists as 
+create or replace view v_most_artists as 
 select d_genres.name, count(d_artists.name) 
 from d_genres 
 inner join d_releases_genres 
@@ -20,7 +20,7 @@ order by count(d_artists.name) desc;
 
 --Time: 1972ms
 /*2: Which countries have more than 5 artists? */
-create or replace view artists_countries as 
+create or replace view v_artists_countries as 
 select mb_area.name, count(mb_artist.id)
 from mb_area
 inner join mb_country_area
@@ -42,7 +42,7 @@ having count(mb_artist.id) > 5;
 
 --Time: 2735ms
 /*3. Which year had the most releases?*/
-create or replace view most_releases as 
+create or replace view v_most_releases as 
 select d_releases.year, count(mb_release.name)
 from mb_release
 inner join d_releases
@@ -53,7 +53,7 @@ limit 150;
 
 --Time: 730ms
 /*4. What is Nepal's most released genre?*/
-create or replace view releases_nepal as 
+create or replace view v_releases_nepal as 
 select d_genres.name, count(mb_release.id)
 from mb_area
 inner join mb_country_area
@@ -74,7 +74,7 @@ order by count(mb_release.id) desc;
 
 --Time: 1466ms
 /*5. What are newest releases in the United Kingdom?*/
-create or replace view newest_releases_uk as 
+create or replace view v_newest_releases_uk as 
 select d_releases.title, d_releases.year
 from d_releases
 inner join mb_release
@@ -91,7 +91,7 @@ limit 150;
 
 --Time: 
 /*6. Which gender is most common?*/
-create or replace view common_genders as 
+create or replace view v_common_genders as 
 select mb_gender.name, count(mb_artist.id)
 from mb_gender
 inner join mb_artist
@@ -101,7 +101,7 @@ order by count(mb_artist.id) desc;
 
 --Time: 224 ms
 /*7. What is the most common name of artists? */
-create or replace view common_names as 
+create or replace view v_common_names as 
 select mb_artist.name as mb_name, count(mb_artist.name) as mb_count
 from mb_artist
 full outer join d_artists 
@@ -112,7 +112,7 @@ limit 150;
 
 --Time: 2161ms
 /*8. Which genres have the most releases?*/
-create or replace view genres_releases as 
+create or replace view v_genres_releases as 
 select d_genres.name, count(d_releases.title) 
 from d_genres 
 inner join d_releases_genres 
@@ -124,7 +124,7 @@ order by count(d_releases.title) desc;
 
 --Time: 1597ms
 /*9. Which gender has the most classical songs?*/
-create or replace view gender_classical as 
+create or replace view v_gender_classical as 
 select mb_gender.name, count(d_releases.title)
 from mb_gender
 inner join mb_artist
@@ -148,7 +148,7 @@ group by mb_gender.name;
 
 --Time: 1228ms
 /*10. Which areas have releases in the hip-hop genre? */
-create or replace view releases_hip_hop as 
+create or replace view v_releases_hip_hop as 
 select mb_area.name
 from mb_area
 inner join mb_country_area
