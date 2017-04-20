@@ -85,7 +85,7 @@ inner join mb_country_area
 on mb_release_country.country = mb_country_area.area
 inner join mb_area
 on mb_country_area.area = mb_area.id
-where mb_area.name = 'United Kingdom' and d_releases.year != 'None'
+where mb_area.name = 'United Kingdom' and d_releases.year != 'None' and d_releases.title != 'Untitled' and d_releases.title != '1'  and d_releases.title != ''
 order by d_releases.year desc
 limit 150;
 
